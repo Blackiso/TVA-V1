@@ -1,0 +1,76 @@
+- Payment processeing :
+You create a plan the user choses the plan then you create an agreement on that plan users confirms 
+this agreement then you execute the agrement
+
+
+-EndPoints
+
+POST ->  Create Order
+POST ->  Capture Order
+
+
+- Fake card
+
+buiseness
+black-test@black.com
+
+client
+black-client@black.com
+
+
+Card Type: Visa
+
+Card Number: 4102000446799263
+
+Expiration Date: 03/2022
+
+CVV: 012
+
+
+
+curl -x 127.0.0.1:8888 -v -X POST https://api.sandbox.paypal.com/v2/checkout/orders/7XA50818J9450670Y/capture \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer A21AAFVcXWhgTyN7G1MABFfNo2AgJ84x_cZIY7FKWpTxxIIZP4sqsZYDEgDjlAmecw2qrwUTtazCgSVjJZyPEMwTV6asL4Byw"
+
+
+
+
+-Accounts types :
+
+pending : user just signed up still hasent paid, account gets delete after.
+regular
+premium
+
+-Users
+POST   -> /resources/sub-users
+GET    -> /resources/sub-users
+POST   -> /resources/sub-users/:id/block
+DELETE -> /resources/sub-users/:id
+PATCH  -> /resources/sub-users/:id
+
+-Companies
+POST   -> /resources/companies
+GET    -> /resources/companies
+GET    -> /resources/companies/:id
+DELETE -> /resources/companies/:id
+PATCH  -> /resources/companies/:id
+
+-Files
+POST   -> /resources/companies/:id/files
+GET    -> /resources/companies
+GET    -> /resources/companies/:id
+DELETE -> /resources/companies/:id
+PATCH  -> /resources/companies/:id
+
+-Bills
+POST   -> /resources/companies/:id/files/:id/bills/month/:month
+GET    -> /resources/companies/:id/files/:id/bills/month/:month
+DELETE -> /resources/companies/:id/files/:id/bills/:id
+PATCH  -> /resources/companies/:id/files/:id/bills/:id
+
+
+
+
+user id = 234899461903
+company id = 31
+file id = 1

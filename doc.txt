@@ -1,0 +1,161 @@
+- Authentication :
+
+	[POST] -> /authentication/register
+	- Body :
+		{
+			"name": "Full Name",
+			"email": "test@test.com",
+			"password": "test123"
+		} 
+
+	[POST] -> /authentication/login
+	- Body :
+		{
+			"email": "test@test.com",
+			"password": "test123"
+	 
+
+	[POST] -> /authentication/logout
+	- Body :
+		no body 
+
+	[GET] -> /authentication/authenticate
+	- Body :
+		no body
+
+- Sub-Users
+	
+	[POST] -> /resources/sub-users/create
+	- Body :
+		{
+			"email": "test@test.edg",  (.edg important)
+			"name": "user name",
+			"password": "test123",
+			"company_id": 5252
+		} 
+
+	[POST] -> /resources/sub-users/add
+	- Body :
+		{
+			"email": "test@test.edg",
+			"company_id": 5252
+		} 
+
+	[GET] -> /resources/sub-users?company=5252
+	- Body :
+		no body 
+
+	[PATCH] -> /resources/sub-users/:sub-user-id
+	- Body :
+		{
+			"email": "test@test.edg",  (.edg important)
+			"name": "updated name",
+			"password": "test123"
+		} 
+
+	[DELETE] -> /resources/sub-users/:sub-user-id
+	- Body :
+		no body 
+
+	[POST] -> /resources/sub-users/:sub-user-id/(block or unblock)
+	- Body :
+		no body 
+
+- Companies
+	
+	[POST] -> /resources/companies
+	- Body :
+		{
+			"company_name": "Facebook",
+			"activity": "Services",
+			"i_f": 25034631544,
+			"phone": "065843144",
+			"address": "test test"
+		} 
+
+	[GET] -> /resources/companies
+	- Body :
+		no body 
+
+	[GET] -> /resources/companies/:company-id
+	- Body :
+		no body 
+
+	[PATCH] -> /resources/companies/:company-id
+	- Body :
+		{
+			"company_name" : "new name",
+			"activity" : "test",
+			"i_f": 255555555,
+			"phone": "02865346",
+			"address": "sqdqs qsd qsd q"
+		} 
+
+	[DELETE] -> /resources/companies/:company-id
+	- Body :
+		no body 
+
+- Files
+	
+	[POST] -> /resources/companies/:company-id/files
+	- Body :
+		{
+			"file_name": "test file",
+			"type": "monthly or quarterly"
+		} 
+
+	[GET] -> /resources/companies/:company-id/files
+	- Body :
+		no body 
+
+	[GET] -> /resources/companies/:company-id/files/:file-id
+	- Body :
+		no body 
+
+	[PATCH] -> /resources/companies/:company-id/files/:file-id
+	- Body :
+		{
+			"file_name" : "updated name",
+			"type" : "monthly"
+		} 
+
+	[DELETE] -> /resources/companies/:company-id/files/:file-id
+	- Body :
+		no body 
+
+- Bills
+	
+	[POST] -> /resources/companies/:company-id/files/:file-id/month/:month
+	- Body :
+		[
+			{
+				"ndo" : "xxxxx",
+				"nfa" : "xxxxx",
+				"ddf" : "xxxxx",
+				"ndf" : "xxxxx",
+				"iff" : "xxxxx",
+				"ice" : "xxxxx",
+				"dbs" : "xxxxx",
+				"mht" : "xxxxx",
+				"tau" : "xxxxx",
+				"tva" : "xxxxx",
+				"ttc" : "xxxxx",
+				"mdp" : "xxxxx",
+				"ddp" : "xxxxx"
+			}
+		] 
+
+	[GET] -> /resources/companies/:company-id/files/:file-id/month/:month
+	- Body :
+		no body 
+
+	[PATCH] -> /resources/companies/:company-id/files/:file-id/bills/:bill-id
+	- Body :
+		{
+			"ndo" : "zzzzzz",
+			"ddf" : "zzzzzz"
+		} 
+
+	[DELETE] -> /resources/companies/:company-id/files/:file-id/bills/:bill-id
+	- Body :
+		no body 
